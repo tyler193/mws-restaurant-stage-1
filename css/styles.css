@@ -11,9 +11,6 @@ body {
 	background-color: #fdfdfd;
 	margin: 0;
 	position:relative;
-	display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
 }
 ul, li {
 	font-family: Arial, Helvetica, sans-serif;
@@ -41,9 +38,6 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 #maincontent {
   background-color: #f3f3f3;
   min-height: 100%;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
 }
 #footer {
   background-color: #444;
@@ -159,8 +153,8 @@ nav h1 a {
   min-height: 380px;
   padding: 0 30px 25px;
   text-align: left;
-  min-width: 280px;
-	max-width: 40%;
+  min-width: 290px;
+	max-width: 33%;
 	align-items: center;
 }
 
@@ -217,6 +211,7 @@ nav h1 a {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+	max-width: 100%
 }
 
 /*.inside header {
@@ -248,7 +243,7 @@ nav h1 a {
 /*.inside #footer {
   bottom: 0;
   position: absolute;
-  width: 50%;
+  width: 100%;
 }*/
 #restaurant-name {
   color: #f18200;
@@ -259,22 +254,13 @@ nav h1 a {
   margin: 115px 0 30px;
   text-transform: uppercase;
   line-height: 1.1;
-	display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
 }
 #restaurant-img {
-	width: 90%;
-	display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
+	width: 80%;
 }
 #restaurant-address {
   font-size: 12pt;
   margin: 10px 0px;
-	display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
 }
 #restaurant-cuisine {
   background-color: #333;
@@ -286,10 +272,7 @@ nav h1 a {
   padding: 2px 0;
   text-align: center;
   text-transform: uppercase;
-	width: 90%;
-	display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
+	width: 80%;
 }
 #restaurant-container, #reviews-container {
   border-bottom: 1px solid #d9d9d9;
@@ -307,9 +290,6 @@ nav h1 a {
 
 #reviews-container {
   padding: 50px 40px 80px;
-	display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
 	align-items: center;
 }
 #reviews-container h2 {
@@ -326,9 +306,6 @@ nav h1 a {
 	flex-direction: column;
 	max-width: 400px;
 	max-width: 80%;
-	display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
 }
 #reviews-list li {
   background-color: #fff;
@@ -340,15 +317,9 @@ nav h1 a {
   padding: 0 20px 20px;
   position: relative;
   width: 85%;
-	display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
 }
 #reviews-list li p {
   margin: 0 0 10px;
-	display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
 }
 #restaurant-hours td {
   color: #666;
