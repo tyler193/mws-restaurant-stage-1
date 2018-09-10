@@ -220,8 +220,8 @@ nav h1 a {
   top: 0;
   width: 100%;
   z-index: 1000;
-}*/
-
+}
+*/
 .inside #map-container {
   background: blue none repeat scroll 0 0;
   /*height: 10%;
@@ -255,9 +255,13 @@ nav h1 a {
   margin: 115px 0 30px;
   text-transform: uppercase;
   line-height: 1.1;
+	width: 80%;
 }
 #restaurant-img {
 	width: 80%;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
 }
 #restaurant-address {
   font-size: 12pt;
@@ -305,7 +309,7 @@ nav h1 a {
   padding: 0;
 	display: flex;
 	flex-direction: column;
-	max-width: 400px;
+	/*max-width: 400px;*/
 	max-width: 80%;
 }
 #reviews-list li {
@@ -317,11 +321,14 @@ nav h1 a {
   overflow: hidden;
   padding: 0 20px 20px;
   position: relative;
-  width: 85%;
+  width: 80%;
 }
 #reviews-list li p {
   margin: 0 0 10px;
 }
 #restaurant-hours td {
   color: #666;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
 }
