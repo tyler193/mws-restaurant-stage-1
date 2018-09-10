@@ -1,4 +1,4 @@
-let cacheVersion = '02';
+let cacheVersion = '01';
 
 const filesCached = [
   '/',
@@ -39,7 +39,7 @@ self.addEventListener('activate', function(event) {
       return Promise.all(
         cacheVersion.map(function(cache) {
           if (cache !== cacheVersion) {
-            console.log('clearing old cache')
+            console.log('clearing old cache');
             return caches.delete(cache);
           }
         })
