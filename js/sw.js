@@ -1,4 +1,4 @@
-let cacheVersion = '01';
+let cacheVersion = '02';
 
 const filesCached = [
   '/',
@@ -21,7 +21,7 @@ const filesCached = [
   '/img/10.jpg'
 ];
 
-//Add install event
+//Install files into cache
 self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(cacheVersion).then(function(cache) {
@@ -34,9 +34,39 @@ self.addEventListener('install', function(event) {
 //Check to make sure worker is activated
 self.addEventListener('activate', function(event) {
   console.log('service worker activated');
+  event.waitUntil(
+    caches.keys().then(function(cacheVersion) {
+      return Promise.all(
+        cacheVersion.map(function(cache) {
+          if (cache !== cacheVersion) {
+            console.log('clearing old cache')
+            return caches.delete(cache);
+          }
+        })
+      );
+    })
+  );
 });
 
-//
-self.addEventListener('activate', function(event) {
-  console.log('service worker activated');
+//Fetch event to see cached files offline
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    caches.match(event.request).then(function(response) {
+      if (response) {
+        return response;
+      } else {
+        return fetch(event.request)
+        .then(function(response) {
+          let clone = response.clone();
+          caches.open(cacheVersion).then(function(cache) {
+            cache.put(event.request, clone);
+          })
+          return response;
+        })
+        .catch(function(err) {
+          console.log(err);
+        });
+      }
+    })
+  );
 });
