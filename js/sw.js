@@ -31,41 +31,27 @@ self.addEventListener('install', function(event) {
 });
 
 
-//Check to make sure worker is activated
-self.addEventListener('activate', function(event) {
-  console.log('service worker activated');
-  event.waitUntil(
-    caches.keys().then(function(cacheVersion) {
-      return Promise.all(
-        cacheVersion.map(function(cache) {
-          if (cache !== cacheVersion) {
-            console.log('clearing old cache');
-            return caches.delete(cache);
-          }
-        })
-      );
-    })
-  );
-});
-
 //Fetch event to see cached files offline
 self.addEventListener('fetch', function(event) {
   event.respondWith(
     caches.match(event.request).then(function(response) {
       if (response) {
+        //console.log('found ', event.request, ' in cache');
         return response;
-      } else {
+      }
+      else {
+        //console.log('could not find ', event.request, ' in cache');
         return fetch(event.request)
-        .then(function(response) {
-          let clone = response.clone();
-          caches.open(cacheVersion).then(function(cache) {
-            cache.put(event.request, clone);
+        .then(function(fetch_response) {
+          const respClone = fetch_response.clone();
+          caches.open(filesCached).then(function(cache) {
+            cache.put(event.request, respClone);
           })
           return response;
         })
         .catch(function(err) {
-          console.log(err);
-        });
+          console.error(err);
+        })
       }
     })
   );
