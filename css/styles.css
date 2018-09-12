@@ -263,6 +263,7 @@ nav h1 a {
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
+	max-width: 450px;
 }
 #restaurant-address {
   font-size: 12pt;
@@ -278,7 +279,8 @@ nav h1 a {
   padding: 2px 0;
   text-align: center;
   text-transform: uppercase;
-	width: 80%;
+	width: 70%;
+	max-width: 450px;
 }
 #restaurant-container, #reviews-container {
   border-bottom: 1px solid #d9d9d9;
